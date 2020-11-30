@@ -1,0 +1,9 @@
+#+TITLE: Org mode presentation and workshop
+
+Navigate to the project and run:
+
+#+BEGIN_SRC shell :results output code
+  emacs -Q -l workshop.el presentation.org
+#+END_SRC
+
+This will load some Emacs lisp code that helps you evaluate source code blocks.

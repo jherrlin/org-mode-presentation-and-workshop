@@ -1,0 +1,480 @@
+#+TITLE: Emacs Org mode
+#+AUTHOR: John Herrlin
+#+DATE: 2020-11-30
+#+STARTUP: overview
+#+OPTIONS: toc:nil
+
+* Lambda Sessions
+
+  As often as we like it.
+
+  Everyone is able to hold presentation or lift ideas!
+
+  Driven by Robin Karlsson and John Herrlin.
+
+* Fortnox
+
+  This event is made with help from:
+
+
+  [[./fortnox_logo_svart.svg]]
+
+* John Herrlin
+
+
+  - Software developer / Scrum master at Fortnox.
+
+
+  - Emacs enthusiast and Rich Hickey fanboy
+
+
+  - Founder of the student union Kodkollektivet
+
+* Emacs
+
+  "An extensible, customizable, free/libre text editor — and more."
+
+  Initial release in 1976 and latest stable release in August 2020.
+
+  A 44 years old text editor have solved problems for a long time.
+
+  Emacs can somewhat be compared to PyCharm, Intellij, Sublime or Vim.
+
+* Lisp environment
+
+  Emacs is promoted as a text editor but it's also a lisp environment.
+
+  One of the key features for me is that I am able to follow, debug
+  and have the ability to understand what is running.
+
+  Good documentation!
+
+* What I use Emacs for
+
+  - Programming
+
+  - Writing
+
+  - Email
+
+  - Git
+
+  - IRC
+
+  - RSS
+
+* [[https://orgmode.org/][Org mode]]
+
+  Org mode is a mode within Emacs.
+
+  "Org mode is for keeping notes, maintaining TODO lists, planning
+  projects, and authoring documents with a fast and effective
+  plain-text system."
+
+  Everything is just plain text, easy to version control and easy
+  search in.
+
+  Very active community on the mailling list and IRC.
+
+* Lets get started
+
+  We will now go through what Org mode can do!
+
+* [[https://orgmode.org/manual/Emphasis-and-Monospace.html#Emphasis-and-Monospace][Text markup]]
+
+
+  *bold*
+
+  /italic/
+
+  =verbetim=
+
+  +strike+
+
+* [[https://orgmode.org/manual/Plain-Lists.html][Numbered lists]]
+
+
+  1. AA
+  2. BBB
+  3. CCCC
+  4. DDDDD
+
+
+  Why is the list not sorted?!
+
+
+  They can be moved up and down with ALT + UP/DOWN.
+
+* [[https://orgmode.org/manual/Checkboxes.html][Checklists]]
+
+
+  - [X] Do this thing
+
+  - [X] Then do this
+
+  - [ ] Last, do this
+
+
+  Boxes can be checked using =C-c C-c=
+
+* Checklist with counters
+
+  - [1/2] All this done
+
+    - [X] Do this
+
+    - [ ] Then this
+
+* [[https://orgmode.org/manual/Images.html][Inline images]]
+
+
+  [[./kodkollektivet-logo.jpeg]]
+
+
+
+
+  (org-display-inline-images)
+
+* [[https://orgmode.org/guide/Hyperlinks.html][Internal links]]
+  <<internal-links>>
+
+
+  Anchors can be placed anywhere in the document, to follow a link use
+  =C-c C-o=
+
+
+  #+BEGIN_SRC text
+    <<internal-links>>                This is the anchor
+    [[internal-links][Link to top]]   This is the link
+  #+END_SRC
+
+
+  [[internal-links][Link to this heading]]
+
+* [[https://orgmode.org/guide/Hyperlinks.html][Link to file]]
+
+  You can create links to files, to follow a link use =C-c C-o=
+
+  This link will take you to row 27 in the core.clj file.
+
+  [[file:~/git/rete/src/server/core.clj::27][Main entry function]]
+
+  This is how the link look in plain text:
+
+  #+BEGIN_SRC text
+    [[file:~/git/rete/src/server/core.clj::27][Main entry function]]
+  #+END_SRC
+
+* HTTP link
+
+  [[https://www.gnu.org/software/emacs/][Emacs website]]
+
+  This is how the link look in plain text:
+
+  #+BEGIN_SRC text
+    [[https://www.gnu.org/software/emacs/][Emacs website]]
+  #+END_SRC
+
+* Link to mail
+
+  [[mu4e:msgid:87d00kb6ij.fsf@gnu.org][Re: official orgmode parser]]
+
+* [[https://orgmode.org/manual/Headlines.html][Headlines]]
+** Headline 1
+*** Sub headline
+**** Sub sub headline
+
+     Headlines can organize text in a tree hierarchy.
+
+     Headlines can be folded and moved.
+
+** Headline 2
+*** Another sub headline
+
+    Some text
+
+*** Yet another headline
+
+    Yet some text
+
+* [[https://orgmode.org/manual/TODO-Items.html][TODOs]]
+
+  TODOs are normal headlines the starts with TODO or DONE.
+
+  They can have SCHEDULED or DEADLINE attributes.
+
+** TODO Write presentation for Kodkollektivet
+   SCHEDULED: <2020-11-30 Mon> DEADLINE: <2020-12-01 Tue>
+
+** TODO Make sure backup works
+   SCHEDULED: <2020-11-30 Mon>
+
+** TODO Learn keyboard command
+
+   #+BEGIN_SRC text
+     C-c a < n      # TODOs in the current buffer
+   #+END_SRC
+
+* [[https://orgmode.org/manual/Clocking-Work-Time.html#Clocking-Work-Time][Clock entries]]
+
+  Track how long a task takes
+
+** Spend time on Jira issue 42
+   :LOGBOOK:
+   CLOCK: [2020-11-30 Mon 14:00]--[2020-11-30 Mon 17:10] =>  3:10
+   CLOCK: [2020-11-30 Mon 08:00]--[2020-11-30 Mon 09:50] =>  1:50
+   :END:
+
+** Wrote feature X for client Y
+   :LOGBOOK:
+   CLOCK: [2020-12-01 Tue 19:00]--[2020-12-01 Tue 20:56] =>  1:56
+   :END:
+
+* [[https://orgmode.org/manual/The-clock-table.html][Clock tables]]
+
+
+  Can sum how long time tasks took
+
+
+  #+BEGIN: clocktable :scope file :compact t
+  #+CAPTION: Clock summary at [2020-11-30 Mon 19:18]
+  | Headline                         |   Time |
+  |----------------------------------+--------|
+  | *Total time*                     | *6:56* |
+  |----------------------------------+--------|
+  | [[https://orgmode.org/manual/Clocking-Work-Time.html#Clocking-Work-Time][Clock entries]]                    |   6:56 |
+  | \_  Spend time on Jira issue 42  |   5:00 |
+  | \_  Wrote feature X for client Y |   1:56 |
+  #+END:
+
+* [[https://orgmode.org/manual/Tables.html][Tables]]
+
+  Now lets look at tables, they are kind of excel like.
+
+* Simple table
+
+  Tables are interactive and you can move rows and columns up/down or
+  left and right.
+
+
+  | Programming languages | Lisp? |
+  |-----------------------+-------|
+  | Java                  | No    |
+  | Ruby                  | No    |
+  | Scheme                | Yes   |
+  | Clojure               | Yes   |
+  | Python                | No    |
+
+
+  ALT + Up/Down to move rows
+  ALT + Left/Right to move columns
+
+* Simple calculations
+
+  You can do calculations.
+
+
+  | Student  | Maths | Physics | Sum |
+  |----------+-------+---------+-----|
+  | Bertrand |     1 |       1 |     |
+  | Henri    |     2 |       2 |     |
+  | Arnold   |     3 |       3 |     |
+  #+TBLFM: $4=vsum($2..$3)
+
+
+  Place the pointer on the #+TBLFM formula and press =C-c C-c=.
+
+* Even with time
+
+
+  | Student | Session 1 | Session 2 | Sum |
+  |---------+-----------+-----------+-----|
+  | Reading |      2:30 |      2:30 |     |
+  | Running |      0:30 |      0:30 |     |
+  | Food    |      0:15 |      0:15 |     |
+  #+TBLFM: $4=vsum($2..$3);U
+
+* [[https://orgmode.org/manual/Structure-of-Code-Blocks.html][Source code blocks]]
+
+  Lets see how we can evaluate code from Org mode!
+
+  The annotation for a source code block:
+
+  #+BEGIN_SRC programming-language options
+    program instructions
+      more instructions
+      and so on
+  #+END_SRC
+
+* Python
+
+  Press =C-c C-c= to evaluate.
+
+  #+BEGIN_SRC python :results output code
+    for i in range(3):
+      print(i, "Hej folks! ")
+  #+END_SRC
+
+* Bash shell
+
+  List all files in the /tmp directory.
+
+  #+BEGIN_SRC shell :results output code
+    ls -la /tmp
+  #+END_SRC
+
+* Source block inputs
+
+  #+NAME: text-example
+  #+BEGIN_EXAMPLE
+    Item1 100
+    Item2 200
+    Item3 50
+  #+END_EXAMPLE
+
+  Sum field nr 2.
+
+  #+BEGIN_SRC awk :results table :stdin text-example
+    BEGIN {OFS="|"}; { sum+= $2}; END { print "Sum", sum}
+  #+END_SRC
+
+* Source block table inputs
+
+  #+NAME: populations
+  | USSR    | 8649 |  275 | Asia          |
+  | Canada  | 3852 |   25 | North America |
+  | China   | 3705 | 1032 | Asia          |
+  | USA     | 3615 |  237 | North America |
+  | Brazil  | 3286 |  134 | South America |
+  | France  |  211 |   55 | Europe        |
+  | Japan   |  144 |  120 | Asia          |
+  | Germany |   96 |   61 | Europe        |
+  | England |   94 |   56 | Europe        |
+
+  #+BEGIN_SRC awk :results output code :stdin populations
+    $4 ~ /Europe/ { sum+= $3 }
+    END { print "Population in Europe is", sum}
+  #+END_SRC
+
+  #+RESULTS:
+  #+begin_src awk
+  Population in Europe is 172
+  #+end_src
+
+* Source SQL
+
+  Lets create a table that we can use as input to the database.
+
+  #+NAME: name-and-ages
+  | Name    | Age | Species |
+  |---------+-----+---------|
+  | John    |  34 | Human   |
+  | Hannah  |  33 | Human   |
+  | Charlie |  10 | Dog     |
+  | Leo     |  19 | Cat     |
+
+  Use this source code block to create and populate the database.
+
+  #+HEADERS: :db /tmp/sqllite.db
+  #+HEADERS: :var orgtable=name-and-ages
+  #+HEADERS: :results silent
+  #+HEADERS: :exports code
+  #+BEGIN_SRC sqlite
+    DROP TABLE if EXISTS TABLE1; CREATE TABLE TABLE1(Name text , Age integer, Species text);
+    .mode csv TABLE1
+    .import $orgtable TABLE1
+  #+END_SRC
+
+  #+HEADERS: :db /tmp/sqllite.db
+  #+HEADERS: :colnames yes
+  #+BEGIN_SRC sqlite
+    SELECT Name,Age FROM TABLE1 WHERE Age > 20;
+  #+END_SRC
+
+* Onliner
+
+  Src code block in oneliner
+
+  src_shell{cd ~/git/org-mode && git log --oneline | head -n1}
+
+* Math
+
+  Emacs can display math equations.
+
+
+  $\frac{a}{b}$
+
+
+  $\sum_{\bigcup_{\bigcap_{\subset \cup \to \to \to \to \to \to \to \simeq }^{}}^{}}^{}$
+
+
+  $x^n + y^n = z^n$
+
+
+
+  =C-c C-x C-l= / org-latex-preview
+
+* Artist mode
+
+  Poor mans UML
+
+  #+BEGIN_SRC artist :results output code
+    +-----------------------------------+
+    | Websocket / HTTP                  | Handlers the communication and auth layer.
+    +-----------------------------------+ Websocker or HTTP and authenticates the user.
+    | - user-id                         |
+    +-----------------------------------+
+                     |
+                     | [ user-id ]
+                     v
+    +-----------------------------------+
+    | Middleware                        | Know about the what database a user can use.
+    +-----------------------------------+ What permissions or groups a user belongs to.
+    | - Users environment               |
+    |   - Database                      |
+    |   - Permissions                   |
+    |   - Other related                 |
+    |   - Resolve user                  |
+    +-----------------------------------+
+                     |
+                     | [ database, user, group, permissions ]
+                     v
+    +-----------------------------------+
+    | Controls                          | Here are functions that does mutations and side effects.
+    +-----------------------------------+
+    | - Create                          |
+    | - Read                            |
+    | - Update                          |
+    | - Delete                          |
+    +-----------------------------------+
+                     |
+                     |
+                     v
+    +-----------------------------------+
+    | Query / Transactions              | Here are queries and transaction functions.
+    +-----------------------------------+
+    | - Get all entities                |
+    | - Do transaction                  |
+    | - Query stuff from db             |
+    +-----------------------------------+
+  #+END_SRC
+
+* Exports
+
+  PDF, demo.
+
+  GitHub pages know how to render it.
+
+* Thank you
+
+  :)
+
+* External resources
+
+  [[https://www.gnu.org/software/emacs/][Emacs]]
+
+  [[https://orgmode.org/][Org mode]]
+
+  [[https://www.youtube.com/watch?v=SzA2YODtgK4][Youtube intro to Org mode]]
+
+  [[https://jherrlin.github.io/][My blog, some posts about Org mode]]

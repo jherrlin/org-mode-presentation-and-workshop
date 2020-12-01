@@ -8,10 +8,20 @@
 
   As often as we like it.
 
+
   Everyone is able to hold presentation or lift ideas!
+
 
   Driven by Robin Karlsson and John Herrlin.
 
+
+  Next session will be an intro to Clojure.
+  Estimated in the end of January.
+
+
+
+
+  Interupt me at any time if you have questions!
 * Fortnox
 
   This event is made with help from:
@@ -52,6 +62,7 @@
 * What I use Emacs for
 
   - Programming
+    (Even Java)
 
   - Writing
 
@@ -65,7 +76,8 @@
 
 * [[https://orgmode.org/][Org mode]]
 
-  Org mode is a mode within Emacs.
+  Org mode is a mode within Emacs that understands structured text.
+  Could be compared to markdown but with superpowers!
 
   "Org mode is for keeping notes, maintaining TODO lists, planning
   projects, and authoring documents with a fast and effective
@@ -76,7 +88,10 @@
 
   Very active community on the mailling list and IRC.
 
+  Created by Carsten Dominik in 2003.
+
 * Lets get started
+
 
   We will now go through what Org mode can do!
 
@@ -100,7 +115,7 @@
   4. DDDDD
 
 
-  Why is the list not sorted?!
+
 
 
   They can be moved up and down with ALT + UP/DOWN.
@@ -115,6 +130,7 @@
   - [ ] Last, do this
 
 
+
   Boxes can be checked using =C-c C-c=
 
 * Checklist with counters
@@ -124,6 +140,8 @@
     - [X] Do this
 
     - [ ] Then this
+
+
 
 * [[https://orgmode.org/manual/Images.html][Inline images]]
 
@@ -230,6 +248,11 @@
    CLOCK: [2020-12-01 Tue 19:00]--[2020-12-01 Tue 20:56] =>  1:56
    :END:
 
+** Org mode presentation
+
+
+   org-clock-in
+   org-clock-out
 * [[https://orgmode.org/manual/The-clock-table.html][Clock tables]]
 
 
@@ -237,17 +260,17 @@
 
 
   #+BEGIN: clocktable :scope file :compact t
-  #+CAPTION: Clock summary at [2020-11-30 Mon 19:18]
+  #+CAPTION: Clock summary at [2020-12-01 Tue 08:53]
   | Headline                         |   Time |
   |----------------------------------+--------|
   | *Total time*                     | *6:56* |
   |----------------------------------+--------|
   | [[https://orgmode.org/manual/Clocking-Work-Time.html#Clocking-Work-Time][Clock entries]]                    |   6:56 |
   | \_  Spend time on Jira issue 42  |   5:00 |
-  | \_  Wrote feature X for client Y |   1:56 |
   #+END:
 
 * [[https://orgmode.org/manual/Tables.html][Tables]]
+
 
   Now lets look at tables, they are kind of excel like.
 
@@ -356,11 +379,6 @@
     END { print "Population in Europe is", sum}
   #+END_SRC
 
-  #+RESULTS:
-  #+begin_src awk
-  Population in Europe is 172
-  #+end_src
-
 * Source SQL
 
   Lets create a table that we can use as input to the database.
@@ -418,7 +436,7 @@
 
   Poor mans UML
 
-  #+BEGIN_SRC artist :results output code
+  #+BEGIN_SRC artist
     +-----------------------------------+
     | Websocket / HTTP                  | Handlers the communication and auth layer.
     +-----------------------------------+ Websocker or HTTP and authenticates the user.
@@ -439,31 +457,13 @@
                      |
                      | [ database, user, group, permissions ]
                      v
-    +-----------------------------------+
-    | Controls                          | Here are functions that does mutations and side effects.
-    +-----------------------------------+
-    | - Create                          |
-    | - Read                            |
-    | - Update                          |
-    | - Delete                          |
-    +-----------------------------------+
-                     |
-                     |
-                     v
-    +-----------------------------------+
-    | Query / Transactions              | Here are queries and transaction functions.
-    +-----------------------------------+
-    | - Get all entities                |
-    | - Do transaction                  |
-    | - Query stuff from db             |
-    +-----------------------------------+
   #+END_SRC
 
 * Exports
 
   PDF, demo.
 
-  GitHub pages know how to render it.
+  GitHub pages know how to render it. (README.org)
 
 * Thank you
 
@@ -478,3 +478,7 @@
   [[https://www.youtube.com/watch?v=SzA2YODtgK4][Youtube intro to Org mode]]
 
   [[https://jherrlin.github.io/][My blog, some posts about Org mode]]
+
+* Time for workshop
+
+  https://github.com/jherrlin/org-mode-presentation-and-workshop
